@@ -73,7 +73,7 @@ router.get("/offers", async (req, res) => { // Route pour rechercher et trier le
         // Destructuration
         const { title, priceMin, priceMax, sort, page } = req.query;
 
-        // Je crée un objet que je donerai en argument au find
+        // Je crée un objet que je donnerai en argument au find
         const filter = {};
 
         // En fonction des queries que je reçois, je vais modifier mon objet filter
@@ -108,10 +108,6 @@ router.get("/offers", async (req, res) => { // Route pour rechercher et trier le
             sortFilter.product_price = "asc";
         }
 
-        // 5 résultats par page : 1 skip = 0 ---- 2 skip = 5  ----- 3 skip = 10 ---- 4 skip = 15
-        // 3 résultats par page : 1 skip = 0 ---- 2 skip = 3  ----- 3 skip = 6
-
-        // skip = (n°page - 1) * nb de résultats par page
 
         let pageToSend = 1;
         if (page) {
